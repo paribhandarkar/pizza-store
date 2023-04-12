@@ -1,0 +1,20 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #F3F2F7;
+    border: 2px solid black;
+}
+
+.navbar-cart{
+    background-color: #D9D9D9;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.navbar-cart:hover{
+    cursor: pointer;
+    background-color: transparent;
+}
