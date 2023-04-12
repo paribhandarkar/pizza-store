@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import PizzaDisplayTemplate from "./PizzaDisplayTemplate";
+import "./PizzaDisplay.css";
+import { PizzaContext } from "../../context/PizzaContext";
 
 const PizzaDisplay = () => {
-  const [pizza, setPizza] = useState([]);
+  const pizzas = useContext(PizzaContext);
 
-  const pizzaData = async () => {
-    const jsonData = await fetch(
-      "https://run.mocky.io/v3/ec196a02-aaf4-4c91-8f54-21e72f241b68"
-    );
-    setPizza(await jsonData.json());
-  };
-
-  useEffect(() => {
-    pizzaData();
-  }, []);
   return (
-    <div>
-      {pizza.map((curPizza) => {
-        return <PizzaDisplayTemplate  />;
+    <div className="pizzaDisplay">
+      {pizzas.map((curPizza) => {
+        return (
+          <PizzaDisplayTemplate
+            identity={curPizza.id}
+            key={curPizza.id}
+            img_url={curPizza.img_url}
+            name={curPizza.name}
+            description={curPizza.description}
+          />
+        );
       })}
     </div>
   );
